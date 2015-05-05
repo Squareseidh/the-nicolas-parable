@@ -11,7 +11,7 @@
 
 }
 
-.presentation{   
+.presentation, #commentaires{   
     position:fixed;
     z-index:15;
     padding-left:10px;
@@ -222,6 +222,8 @@ background:
     -webkit-linear-gradient(30deg, #38A1D2 31%, rgba(247, 243, 238, 0) 33%), 
     -webkit-linear-gradient(150deg, #38A1D2 31%, rgba(247, 243, 238, 0) 33%), 
     -webkit-radial-gradient(transparent 39%, #f7f3ee 40%);
+background: 
+    -webkit-linear-gradient(30deg, #38A1D2 31%, rgba(247, 243, 238, 0) 33%), -webkit-linear-gradient(150deg, #38A1D2 31%, rgba(247, 243, 238, 0) 33%), -webkit-radial-gradient(transparent 39%, #f7f3ee 40%);
 background: 
     linear-gradient(60deg, #38A1D2 31%, rgba(247, 243, 238, 0) 33%),
     linear-gradient(-60deg, #38A1D2 31%, rgba(247, 243, 238, 0) 33%),

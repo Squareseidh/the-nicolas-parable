@@ -1,7 +1,9 @@
 /*global  $, window*/
 function principale() {
     "use strict";
-    var $dialogue;
+    var $dialogue,
+        $commentaire,
+        i = 0;
     
     $('#loader').hide();
     $('.presentation').fadeIn();
@@ -9,6 +11,9 @@ function principale() {
     $('.circ-menu').fadeIn();
     
     $dialogue = $('#accueil .presentation h2');
+    $commentaire = $('#accueil #commentaires h2');
+    
+    $commentaire.hide();
     
     $('.circ-menu a').arctext({radius: 115}); //incurver les titres du menu
     $('.covervid-video').coverVid(1920, 1080); // la valeur importe peu
@@ -26,6 +31,18 @@ function principale() {
     $dialogue.eq(9).delay(46000).fadeIn(400).delay(3000).fadeOut(400);
     $dialogue.eq(10).delay(50000).fadeIn(400).delay(4000).fadeOut(400);
     $dialogue.eq(11).delay(55000).fadeIn(400).delay(4000).fadeOut(400);
+    
+    $('a').hover(function () {
+        i += 1;
+        if (i === 1) {
+            $commentaire.eq(0).fadeIn(400).delay(1000).fadeOut(400);
+            $dialogue.remove();
+        }
+        if (i === 2) {
+            $commentaire.eq(1).fadeIn(400).delay(1000).fadeOut(400);
+        }
+        $commentaire.eq(2).delay(10000).fadeIn(400).delay(4000).fadeOut(400);
+    });
 }
 
 
