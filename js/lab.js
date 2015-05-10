@@ -1,11 +1,17 @@
+    google.load("feeds", "1");
+
+    function initialize() {
+      var feed = new google.feeds.Feed("https://github.com/Squareseidh.atom");
+      feed.load(function(result) {
+        console.log(result);
+      });
+    }
+    google.setOnLoadCallback(initialize);
+
+
 /*global  $, window*/
 function principale() {
     "use strict";
-
-    $("#rss-feeds").rss("https://github.com/Squareseidh.atom", {
-          limit: 3,
-          effect: 'slideFastSynced'
-    });
     
     $.ajax({
         url: 'https://api.github.com/users/Squareseidh',
