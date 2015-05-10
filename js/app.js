@@ -36,12 +36,8 @@ function principale() {
         i += 1;
         if (i === 1) {
             $commentaire.eq(0).fadeIn(400).delay(1000).fadeOut(400);
-            $dialogue.remove();
+            $dialogue.hide();
         }
-        if (i === 2) {
-            $commentaire.eq(1).fadeIn(400).delay(1000).fadeOut(400);
-        }
-        $commentaire.eq(2).delay(10000).fadeIn(400).delay(4000).fadeOut(400);
     });
 }
 
