@@ -33,7 +33,7 @@ function principale() {
                 var nom = $("<h1>" + resultat[i].name + "</h1>"),
                     lienRepo = $("<a href='" + resultat[i].git_url + "' target='_blank'></a>"),
                     descr = $("<p>" + resultat[i].description + "</p>"),
-                    creation = $("<h3>Crée le: " + $.format.date(resultat[i].created_at, "dd/MM/yyyy")  + "</h3>"),
+                    creation = $("<h3>Crée le: " + $.format.date(resultat[i].created_at, "d MMM yy")  + "</h3>"),
                     language = $("<h2>" + resultat[i].language + "</h2>"),
                     repo = $('<section></section>');
             
@@ -69,9 +69,9 @@ function principale() {
                     phrase = $('<p>');
                     
                     repoCommit = $('<span>' + resultat[i].repo.name + '</span>');
-                    dateCrea = $('<span>' + $.format.date(resultat[i].created_at, "dd/MM/yyyy") + '</span>');
+                    dateCrea = $('<span>' + $.format.date(resultat[i].created_at, "d MMM yy HH:mm ") + '</span>');
                     createur = $('<span>' + resultat[i].actor.login + '</span>');
-                    verbe = ' pushed to ';
+                    verbe = ' a modifié ';
                     
                     
                     phrase.append(dateCrea);
