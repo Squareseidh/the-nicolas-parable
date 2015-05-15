@@ -1,7 +1,8 @@
 /*global  $, window*/
 function principale() {
     "use strict";
-    var i;
+    var i,
+        nbCommits = 0;
     
     $.ajax({
         url: 'https://api.github.com/users/Squareseidh',
@@ -23,16 +24,16 @@ function principale() {
         }
     });
     
+    
     $.ajax({
 	    url: 'https://api.github.com/users/Squareseidh/repos',
         success: function (resultat) {
-            console.log(resultat);
             for (i = 0; i < resultat.length; i += 1) {
                 
                 var nom = $("<h1>" + resultat[i].name + "</h1>"),
                     lienRepo = $("<a href='" + resultat[i].git_url + "' target='_blank'></a>"),
                     descr = $("<p>" + resultat[i].description + "</p>"),
-                    creation = $("<h3>Crée le: " + resultat[i].created_at + "</h3>"),
+                    creation = $("<h3>Crée le: " + $.format.date(resultat[i].created_at, "dd/MM/yyyy")  + "</h3>"),
                     language = $("<h2>" + resultat[i].language + "</h2>"),
                     repo = $('<section></section>');
             
@@ -41,7 +42,6 @@ function principale() {
                 repo.append(descr);
                 repo.append(creation);
                 repo.append(language);
-                console.log(repo);
                 
                 $('#githubRepo').append(repo);
             }
@@ -52,6 +52,45 @@ function principale() {
 	    url: 'https://api.github.com/users/Squareseidh/events',
         success: function (resultat) {
             console.log(resultat);
+            var sectionCommit = $('<section>'),
+                repoCommit,
+                commits,
+                comCommit,
+                dateCrea,
+                createur,
+                phrase,
+                verbe;
+            
+            for (i = 0; i < 3; i += 1) {
+                
+                if (resultat[i].type === "PushEvent") {
+                    
+                    nbCommits += 1;
+                    phrase = $('<p>');
+                    
+                    repoCommit = $('<span>' + resultat[i].repo.name + '</span>');
+                    dateCrea = $('<span>' + $.format.date(resultat[i].created_at, "dd/MM/yyyy") + '</span>');
+                    createur = $('<span>' + resultat[i].actor.login + '</span>');
+                    verbe = ' pushed to ';
+                    
+                    
+                    phrase.append(dateCrea);
+                    phrase.append(createur);
+                    phrase.append(verbe);
+                    phrase.append(repoCommit);
+                    
+                    sectionCommit.append(phrase);
+                    
+                    $(resultat[i].payload.commits).each(function () {
+                        comCommit = $('<p>' + this.message + '</p>');
+                        sectionCommit.append(comCommit);
+                    });
+                    
+                    $('#event').append(sectionCommit);
+                }
+            }
+            commits = $('<h2>' + nbCommits + ' commits</h2>');
+            $('#githubUser').append(commits);
         }
     });
 }
