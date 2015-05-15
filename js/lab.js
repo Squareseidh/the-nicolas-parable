@@ -68,7 +68,7 @@ function principale() {
                     nbCommits += 1;
                     phrase = $('<p>');
                     
-                    repoCommit = $('<span>' + resultat[i].repo.name + '</span>');
+                    repoCommit = $("<a href='" + resultat[i].repo.name + "' target='_blank'>" + resultat[i].repo.name + "</a>");
                     dateCrea = $('<span>' + $.format.date(resultat[i].created_at, "d MMM yy HH:mm ") + '</span>');
                     createur = $('<span>' + resultat[i].actor.login + '</span>');
                     verbe = ' a modifié ';
@@ -82,7 +82,7 @@ function principale() {
                     sectionCommit.append(phrase);
                     
                     $(resultat[i].payload.commits).each(function () {
-                        comCommit = $('<p>' + this.message + '</p>');
+                        comCommit = $('<blockquote>' + this.message + '</blockquote>');
                         sectionCommit.append(comCommit);
                     });
                     
