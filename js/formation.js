@@ -31,14 +31,7 @@ function principale() {
     $dialogue.eq(9).delay(46000).fadeIn(400).delay(3000).fadeOut(400);
     $dialogue.eq(10).delay(50000).fadeIn(400).delay(4000).fadeOut(400);
     $dialogue.eq(11).delay(55000).fadeIn(400).delay(4000).fadeOut(400);
-    
-    $('a').hover(function () {
-        i += 1;
-        if (i === 1) {
-            $commentaire.eq(0).fadeIn(400).delay(1000).fadeOut(400);
-            $dialogue.hide();
-        }
-    });
+
 }
 
 
