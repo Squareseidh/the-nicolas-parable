@@ -11,6 +11,10 @@
 
 }
 
+html, body{
+    height:100%;
+}
+
 .presentation{   
     position:fixed;
     z-index:15;
@@ -50,6 +54,7 @@ h2{
     padding: 0;
     
     height:100%;
+    width:100%;
     
     font-family: sans-serif;
     font-size:40;
@@ -128,32 +133,60 @@ h2{
 #github{
     width:300px;
     background-color:white;
-    margin-top:200px;
+    margin-top:15%;
     margin-left: 10%;
     position:fixed;
     z-index:15;
-    float:right;
     border-radius:6px;
     padding:8px;
 }
 
+#gazouillis{
+    position:fixed;
+    z-index:15;
+    width:300px;
+    margin-left: 67%;
+    margin-top: 15%;
+}
+
+.md-location-on{
+    color: #4183C3;
+}
+
 #github h1{
     font-size:16px;
+    color:rgb(41, 47, 51);
     font-family: Roboto;
-    color: rgba(0,0,0,0.87);
 }
 
 #github h2, #github p, #github span{
     background:none;
+    color:#333333;
     font-size:15px;
     font-family: Roboto;
     padding:0;
+}
+
+#github h2 span{
+    color:#4183C3;
+    font-weight: 700;
+    font-size:16px;
 }
 
 #githubUser section{
     display: inline-block;
     float: right;
     width:210px;
+    line-height:19px;
+}
+
+#githubUser section h2{
+    color: #707070;
+    font-size:13px;
+}
+
+#githubUser section h2:last-child{
+    margin-left: -3px;
 }
 
 @-webkit-keyframes spin{

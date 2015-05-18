@@ -11,7 +11,7 @@ function githubapi() {
                 username = $("<h1>" + resultat.login + "</h1>"),
                 followers = $("<h2><span>" + resultat.followers + "</span> followers</h2>"),
                 following = $("<h2><span>" + resultat.following + "</span> following</h2>"),
-                location = $("<h2><i class='md-location-on'></i>" + resultat.location + "</h2>"),
+                location = $("<h2><i class='md-location-on'></i> " + resultat.location + "</h2>"),
                 infos = $('<section>');
             
             lienGithub.append(avatar);
